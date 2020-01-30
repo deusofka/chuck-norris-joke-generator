@@ -1,0 +1,186 @@
+/********************
+      VARIABLES
+*********************/
+$bg-color: #111;
+$fg-color: #45ff00;
+$content-width: 46.5rem;
+$heading-l: 3.75rem;
+
+/********************
+      EXTENDS
+********************/
+%font {
+  font-family: "VT323", monospace;
+  font-weight: 100;
+  font-size: 1.25rem;
+}
+
+/********************
+      UTILITY
+********************/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/********************
+      STYLE
+*********************/
+body {
+  background-color: $bg-color;
+  color: $fg-color;
+  @extend %font;
+
+  & > div {
+    position: relative;
+    width: $content-width;
+    margin: auto;
+
+    /********************
+           HEADING
+    *********************/
+    header {
+      h1 {
+        font-size: $heading-l;
+        font-weight: 400;
+        margin: 2.5rem 0 2rem 0;
+        color: linear-gradient($fg-color, $bg-color);
+      }
+    }
+    /********************
+          CONTROLS
+    *********************/
+    section {
+      padding: 0 0.25rem;
+      form {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        div {
+          input {
+            display: none;
+
+            &:checked + label > span.radio:before {
+              visibility: visible;
+            }
+
+            &:checked + label > span.checkbox:before {
+              visibility: visible;
+            }
+          }
+
+          label {
+            span {
+              display: inline-flex;
+              justify-content: center;
+              align-items: center;
+              top: 0.5rem;
+              border: 3px solid $fg-color;
+              margin-right: 0.75rem;
+
+              &.radio {
+                border-radius: 50%;
+                margin-left: 0.5rem;
+                width: 1.8rem;
+                height: 1.8rem;
+
+                &:before {
+                  content: "";
+                  visibility: hidden;
+                  background-color: $fg-color;
+                  border-radius: 50%;
+                  width: 0.8rem;
+                  height: 0.8rem;
+                }
+              }
+
+              &.checkbox {
+                border-radius: 3px;
+                width: 1.6rem;
+                height: 1.6rem;
+
+                &:before {
+                  content: "";
+                  visibility: hidden;
+                  margin-bottom: 0.2rem;
+                  border-right: 3px solid $fg-color;
+                  border-bottom: 3px solid $fg-color;
+                  width: 0.35rem;
+                  height: 0.6rem;
+                  transform: rotate(45deg);
+                }
+              }
+            }
+          }
+
+          button {
+            outline: none;
+            border: none;
+            background-color: $fg-color;
+            color: $bg-color;
+            @extend %font;
+            padding: 0.5rem 1.3rem;
+            margin-left: 0.75rem;
+          }
+        }
+      }
+    }
+
+    /********************
+          SHOWCASE
+    *********************/
+    main {
+      margin-top: 2rem;
+      height: 70vh;
+      border: 3px solid $fg-color;
+      overflow: scroll;
+
+      // Loader
+      div {
+        height: inherit;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+      }
+
+      p {
+        padding: 1.5rem;
+        padding-right: 0.75rem;
+        &:nth-of-type(odd) {
+          border-bottom: 3px solid $fg-color;
+        }
+        &:nth-of-type(even) {
+          background-color: $fg-color;
+          color: $bg-color;
+        }
+      }
+    }
+
+    /********************
+           FOOTER
+    *********************/
+    footer {
+      position: scroll;
+      bottom: 0;
+      padding: 2rem 0rem;
+
+      input {
+        width: 6ch;
+        outline: none;
+        border: none;
+        border-bottom: 2.5px solid $fg-color;
+        background-color: $bg-color;
+        color: $fg-color;
+        @extend %font;
+        padding-left: 0.25rem;
+        padding-bottom: 0.25rem;
+
+        &:nth-of-type(2) {
+          width: 7ch;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,130 @@
+/********************
+      VARIABLES
+*********************/
+/********************
+      EXTENDS
+********************/
+body, body > div section form div button, body > div footer input {
+  font-family: "VT323", monospace;
+  font-weight: 100;
+  font-size: 1.25rem; }
+
+/********************
+      UTILITY
+********************/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+/********************
+      STYLE
+*********************/
+body {
+  background-color: #111;
+  color: #45ff00; }
+  body > div {
+    position: relative;
+    width: 46.5rem;
+    margin: auto;
+    /********************
+           HEADING
+    *********************/
+    /********************
+          CONTROLS
+    *********************/
+    /********************
+          SHOWCASE
+    *********************/
+    /********************
+           FOOTER
+    *********************/ }
+    body > div header h1 {
+      font-size: 3.75rem;
+      font-weight: 400;
+      margin: 2.5rem 0 2rem 0;
+      color: linear-gradient(#45ff00, #111); }
+    body > div section {
+      padding: 0 0.25rem; }
+      body > div section form {
+        display: flex;
+        justify-content: space-between;
+        align-items: center; }
+        body > div section form div input {
+          display: none; }
+          body > div section form div input:checked + label > span.radio:before {
+            visibility: visible; }
+          body > div section form div input:checked + label > span.checkbox:before {
+            visibility: visible; }
+        body > div section form div label span {
+          display: inline-flex;
+          justify-content: center;
+          align-items: center;
+          top: 0.5rem;
+          border: 3px solid #45ff00;
+          margin-right: 0.75rem; }
+          body > div section form div label span.radio {
+            border-radius: 50%;
+            margin-left: 0.5rem;
+            width: 1.8rem;
+            height: 1.8rem; }
+            body > div section form div label span.radio:before {
+              content: "";
+              visibility: hidden;
+              background-color: #45ff00;
+              border-radius: 50%;
+              width: 0.8rem;
+              height: 0.8rem; }
+          body > div section form div label span.checkbox {
+            border-radius: 3px;
+            width: 1.6rem;
+            height: 1.6rem; }
+            body > div section form div label span.checkbox:before {
+              content: "";
+              visibility: hidden;
+              margin-bottom: 0.2rem;
+              border-right: 3px solid #45ff00;
+              border-bottom: 3px solid #45ff00;
+              width: 0.35rem;
+              height: 0.6rem;
+              transform: rotate(45deg); }
+        body > div section form div button {
+          outline: none;
+          border: none;
+          background-color: #45ff00;
+          color: #111;
+          padding: 0.5rem 1.3rem;
+          margin-left: 0.75rem; }
+    body > div main {
+      margin-top: 2rem;
+      height: 70vh;
+      border: 3px solid #45ff00;
+      overflow: scroll; }
+      body > div main div {
+        height: inherit;
+        display: flex;
+        justify-content: center;
+        align-content: center; }
+      body > div main p {
+        padding: 1.5rem;
+        padding-right: 0.75rem; }
+        body > div main p:nth-of-type(odd) {
+          border-bottom: 3px solid #45ff00; }
+        body > div main p:nth-of-type(even) {
+          background-color: #45ff00;
+          color: #111; }
+    body > div footer {
+      position: scroll;
+      bottom: 0;
+      padding: 2rem 0rem; }
+      body > div footer input {
+        width: 6ch;
+        outline: none;
+        border: none;
+        border-bottom: 2.5px solid #45ff00;
+        background-color: #111;
+        color: #45ff00;
+        padding-left: 0.25rem;
+        padding-bottom: 0.25rem; }
+        body > div footer input:nth-of-type(2) {
+          width: 7ch; }
