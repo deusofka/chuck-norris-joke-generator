@@ -15,18 +15,23 @@ let populateH1 = function() {
     h1Dom.textContent = "The Chuck Norris Joke Generator";
   }
 };
-let resizeHeading = function() {
+let resizeH1 = function() {
   let headingWidth =
     mainDom.offsetWidth / h1Dom.textContent.length / 6.5 + "rem";
   h1Dom.style.fontSize = headingWidth;
 };
-resizeHeading();
+resizeH1();
 
 /********************
     RESIZE EVENT
 *********************/
 window.addEventListener("resize", function(e) {
-  resizeHeading();
+  resizeH1();
+  populateH1();
+});
+
+window.addEventListener("orientationchange", function(e) {
+  resizeH1();
   populateH1();
 });
 
