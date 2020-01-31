@@ -41,8 +41,7 @@ window.addEventListener("orientationchange", function(e) {
 *********************/
 generateDom.addEventListener("click", function(e) {
   e.preventDefault();
-  mainDom.innerHTML = `<div><br />Loading...</div>`;
-
+  mainDom.innerHTML = `<div class = "loader"></div>`;
   let xhr = new XMLHttpRequest();
   let url = "https://api.icndb.com/jokes/random/";
 

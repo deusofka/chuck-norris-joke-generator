@@ -134,11 +134,14 @@ body {
       overflow: scroll;
 
       // Loader
-      div {
-        height: inherit;
+      div.loader {
+        height: 100%;
         display: flex;
         justify-content: center;
         align-content: center;
+        background-image: url("../img/loading.gif");
+        background-repeat: no-repeat;
+        background-position: 52% 45%;
       }
 
       p {
