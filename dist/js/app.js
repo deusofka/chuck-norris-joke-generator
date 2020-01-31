@@ -88,20 +88,23 @@ generateDom.addEventListener("click", function(e) {
   xhr.send();
 });
 
+let changeFieldLength = function(field) {
+  let width = Math.max(field.value.length + 1, 5);
+  field.style.width = width + "ch";
+};
+changeFieldLength(firstDom);
+changeFieldLength(lastDom);
+
 /********************
    FIRSTNAME EVENT
 *********************/
 firstDom.addEventListener("keyup", function(e) {
-  console.log(e);
-  let width = Math.max(this.value.length + 1, 5);
-  firstDom.style.width = width + "ch";
+  changeFieldLength(firstDom);
 });
 
 /********************
     LASTNAME EVENT
 *********************/
 lastDom.addEventListener("keyup", function(e) {
-  console.log(e);
-  let width = Math.max(this.value.length + 1, 5);
-  lastDom.style.width = width + "ch";
+  changeFieldLength(lastDom);
 });
