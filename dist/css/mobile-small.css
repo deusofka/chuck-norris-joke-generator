@@ -1,0 +1,27 @@
+/********************
+      VARIABLES
+*********************/
+/********************
+      EXTENDS
+********************/
+body > div {
+  /********************
+          CONTROLS
+    *********************/ }
+  body > div section form div#how-many-container {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    justify-content: space-between; }
+    body > div section form div#how-many-container label span.radio {
+      margin-right: 0; }
+  body > div section form div#nerdy-container {
+    order: 2;
+    grid-column-start: 1;
+    grid-column-end: 2; }
+  body > div section form div#generate-container {
+    order: 3;
+    grid-column-start: 2;
+    grid-column-end: 3; }
+    body > div section form div#generate-container button {
+      width: initial;
+      margin-left: 0rem; }

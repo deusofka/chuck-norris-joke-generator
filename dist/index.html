@@ -10,6 +10,16 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/main.css" />
+    <link
+      rel="stylesheet"
+      media="only screen and (max-width:600px)"
+      href="css/mobile.css"
+    />
+    <link
+      rel="stylesheet"
+      media="only screen and (max-width:444px)"
+      href="css/mobile-small.css"
+    />
   </head>
   <body>
     <div>
@@ -29,21 +39,40 @@
       -->
       <section>
         <form>
-          <div>
-            <!-- How many? -->
-            How many:
-            <input type="radio" id="one" name="no-of-jokes" value="1" checked />
-            <label for="one">&nbsp 1<span class="radio"></span></label>
-            <input type="radio" id="three" name="no-of-jokes" value="3" />
-            <label for="three">3<span class="radio"></span></label>
-            <input type="radio" id="ten" name="no-of-jokes" value="10" />
-            <label for="ten">10<span class="radio"></span></label>
+          <!-- How many? -->
+          <div id="how-many-container">
+            <div>
+              <label>How many:</label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                id="one"
+                name="no-of-jokes"
+                value="1"
+                checked
+              />
+              <label for="one">&nbsp 1<span class="radio"></span></label>
+            </div>
+            <div>
+              <input type="radio" id="three" name="no-of-jokes" value="3" />
+
+              <label for="three">3<span class="radio"></span></label>
+            </div>
+            <div>
+              <input type="radio" id="ten" name="no-of-jokes" value="10" />
+
+              <label for="ten">10<span class="radio"></span></label>
+            </div>
           </div>
-          <div>
-            <!-- Nerdy? -->
+
+          <!-- Nerdy? -->
+          <div id="nerdy-container">
             <input type="checkbox" id="nerdy" name="no-of-jokes" value="3" />
             <label for="nerdy"><span class="checkbox"></span>Nerdy?</label>
-            <!-- Generate -->
+          </div>
+          <!-- Generate -->
+          <div id="generate-container">
             <button>Generate</button>
           </div>
         </form>

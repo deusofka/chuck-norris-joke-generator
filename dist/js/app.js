@@ -1,68 +1,91 @@
-let mainDom = document.querySelector("main");
+/********************
+       HOOKS
+*********************/
+let h1Dom = document.querySelector("h1");
 let nerdyDom = document.querySelector("#nerdy");
+let generateDom = document.querySelector("button");
+let mainDom = document.querySelector("main");
 let firstDom = document.querySelector("#first-name");
 let lastDom = document.querySelector("#last-name");
 
-// Generate event
-let generateDom = document
-  .querySelector("button")
-  .addEventListener("click", function(e) {
-    e.preventDefault();
-    mainDom.innerHTML = `<div><br />Loading...</div>`;
+let resizeHeading = function() {
+  let headingWidth =
+    mainDom.offsetWidth / h1Dom.textContent.length / 6.5 + "rem";
+  h1Dom.style.fontSize = headingWidth;
+};
+resizeHeading();
 
-    let xhr = new XMLHttpRequest();
-    let url = "https://api.icndb.com/jokes/random/";
+/********************
+    RESIZE EVENT
+*********************/
+window.addEventListener("resize", function(e) {
+  resizeHeading();
+});
 
-    // 1. Check number of jokes
-    let numJokes = document.querySelector("input[name='no-of-jokes']:checked")
-      .value;
-    url += numJokes;
+/********************
+    GENERATE EVENT
+*********************/
+generateDom.addEventListener("click", function(e) {
+  e.preventDefault();
+  mainDom.innerHTML = `<div><br />Loading...</div>`;
 
-    // 2. Exclude explicit jokes
-    url += "?exclude=[explicit]";
+  let xhr = new XMLHttpRequest();
+  let url = "https://api.icndb.com/jokes/random/";
 
-    // 3. Check if nerdy
-    if (nerdyDom.checked === true) {
-      url += "&limitTo=[nerdy]";
-    }
+  // 1. Set number of jokes
+  let numJokes = document.querySelector("input[name='no-of-jokes']:checked")
+    .value;
+  url += numJokes;
 
-    // 4. Append first and last names
-    url += "&firstName=" + firstDom.value;
-    url += "&lastName=" + lastDom.value;
-    console.log(url);
+  // 2. Exclude explicit jokes
+  url += "?exclude=[explicit]";
 
-    xhr.open("GET", url, true);
+  // 3. Check if nerdy
+  if (nerdyDom.checked === true) {
+    url += "&limitTo=[nerdy]";
+  }
 
-    xhr.onload = function() {
-      if (this.status == "200") {
-        let response = JSON.parse(this.responseText);
-        if (response.type == "success") {
-          // Single joke
-          if (numJokes === 1) {
-            mainDom.innerHTML = `<p>${response.value.joke}</p>`;
-          }
-          // Multiple jokes
-          else {
-            let content = "";
-            response.value.forEach(function(joke) {
-              content += `<p>${joke.joke}</p>`;
-            });
-            mainDom.innerHTML = content;
-          }
+  // 4. Append first and last names
+  url += "&firstName=" + firstDom.value;
+  url += "&lastName=" + lastDom.value;
+  console.log(url);
+
+  xhr.open("GET", url, true);
+
+  xhr.onload = function() {
+    if (this.status == "200") {
+      let response = JSON.parse(this.responseText);
+      if (response.type == "success") {
+        // Single joke
+        if (numJokes === 1) {
+          mainDom.innerHTML = `<p>${response.value.joke}</p>`;
+        }
+        // Multiple jokes
+        else {
+          let content = "";
+          response.value.forEach(function(joke) {
+            content += `<p>${joke.joke}</p>`;
+          });
+          mainDom.innerHTML = content;
         }
       }
-    };
-    xhr.send();
-  });
+    }
+  };
+  xhr.send();
+});
 
-// Dynamically change first name width
+/********************
+   FIRSTNAME EVENT
+*********************/
 firstDom.addEventListener("keyup", function(e) {
   console.log(e);
   let width = Math.max(this.value.length + 1, 5);
   firstDom.style.width = width + "ch";
 });
 
-// Dynamically change last name width
+/********************
+    LASTNAME EVENT
+*********************/
 lastDom.addEventListener("keyup", function(e) {
   console.log(e);
   let width = Math.max(this.value.length + 1, 5);

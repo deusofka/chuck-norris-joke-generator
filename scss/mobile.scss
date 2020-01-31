@@ -1,0 +1,29 @@
+@import "variables";
+@import "extends";
+
+body {
+  & > div {
+    /********************
+          CONTROLS
+    *********************/
+    section {
+      form {
+        grid-template-columns: 1fr auto;
+        grid-row-gap: 1rem;
+        div#generate-container {
+          grid-column-start: 1;
+          grid-column-end: 3;
+          button {
+            width: 100%;
+            display: block;
+            margin-left: 0rem;
+          }
+        }
+      }
+    }
+
+    main {
+      margin-top: 0rem;
+    }
+  }
+}

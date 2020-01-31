@@ -1,0 +1,22 @@
+/********************
+      VARIABLES
+*********************/
+/********************
+      EXTENDS
+********************/
+body > div {
+  /********************
+          CONTROLS
+    *********************/ }
+  body > div section form {
+    grid-template-columns: 1fr auto;
+    grid-row-gap: 1rem; }
+    body > div section form div#generate-container {
+      grid-column-start: 1;
+      grid-column-end: 3; }
+      body > div section form div#generate-container button {
+        width: 100%;
+        display: block;
+        margin-left: 0rem; }
+  body > div main {
+    margin-top: 0rem; }

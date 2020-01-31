@@ -22,10 +22,15 @@ body, body > div section form div button, body > div footer input {
 *********************/
 body {
   background-color: #111;
-  color: #45ff00; }
+  color: #45ff00;
+  height: 100vh; }
   body > div {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
     position: relative;
-    width: 46.5rem;
+    width: 90vw;
+    max-width: 1280px;
     margin: auto;
     /********************
            HEADING
@@ -39,65 +44,71 @@ body {
     /********************
            FOOTER
     *********************/ }
-    body > div header h1 {
-      font-size: 3.75rem;
-      font-weight: 400;
-      margin: 2.5rem 0 2rem 0;
-      color: linear-gradient(#45ff00, #111); }
+    body > div header {
+      flex: 0 1 auto; }
+      body > div header h1 {
+        font-size: 4.83871rem;
+        padding: 0;
+        margin: 1.5rem 0 1.5rem 0;
+        font-weight: 400;
+        text-align: justify; }
     body > div section {
-      padding: 0 0.25rem; }
+      flex: 0 1 auto; }
       body > div section form {
-        display: flex;
-        justify-content: space-between;
-        align-items: center; }
-        body > div section form div input {
-          display: none; }
-          body > div section form div input:checked + label > span.radio:before {
-            visibility: visible; }
-          body > div section form div input:checked + label > span.checkbox:before {
-            visibility: visible; }
-        body > div section form div label span {
-          display: inline-flex;
-          justify-content: center;
+        display: grid;
+        grid-template-columns: 1fr auto auto; }
+        body > div section form div {
+          display: flex;
           align-items: center;
-          top: 0.5rem;
-          border: 3px solid #45ff00;
-          margin-right: 0.75rem; }
-          body > div section form div label span.radio {
-            border-radius: 50%;
-            margin-left: 0.5rem;
-            width: 1.8rem;
-            height: 1.8rem; }
-            body > div section form div label span.radio:before {
-              content: "";
-              visibility: hidden;
-              background-color: #45ff00;
+          flex-direction: row; }
+          body > div section form div input {
+            display: none; }
+            body > div section form div input:checked + label > span.radio:before {
+              visibility: visible; }
+            body > div section form div input:checked + label > span.checkbox:before {
+              visibility: visible; }
+          body > div section form div label span {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            top: 0.5rem;
+            border: 3px solid #45ff00;
+            margin-right: 0.75rem; }
+            body > div section form div label span.radio {
               border-radius: 50%;
-              width: 0.8rem;
-              height: 0.8rem; }
-          body > div section form div label span.checkbox {
-            border-radius: 3px;
-            width: 1.6rem;
-            height: 1.6rem; }
-            body > div section form div label span.checkbox:before {
-              content: "";
-              visibility: hidden;
-              margin-bottom: 0.2rem;
-              border-right: 3px solid #45ff00;
-              border-bottom: 3px solid #45ff00;
-              width: 0.35rem;
-              height: 0.6rem;
-              transform: rotate(45deg); }
-        body > div section form div button {
-          outline: none;
-          border: none;
-          background-color: #45ff00;
-          color: #111;
-          padding: 0.5rem 1.3rem;
-          margin-left: 0.75rem; }
+              margin-left: 0.5rem;
+              width: 1.8rem;
+              height: 1.8rem; }
+              body > div section form div label span.radio:before {
+                content: "";
+                visibility: hidden;
+                background-color: #45ff00;
+                border-radius: 50%;
+                width: 0.8rem;
+                height: 0.8rem; }
+            body > div section form div label span.checkbox {
+              border-radius: 3px;
+              width: 1.6rem;
+              height: 1.6rem; }
+              body > div section form div label span.checkbox:before {
+                content: "";
+                visibility: hidden;
+                margin-bottom: 0.2rem;
+                border-right: 3px solid #45ff00;
+                border-bottom: 3px solid #45ff00;
+                width: 0.35rem;
+                height: 0.6rem;
+                transform: rotate(45deg); }
+          body > div section form div button {
+            outline: none;
+            border: none;
+            background-color: #45ff00;
+            color: #111;
+            padding: 0.5rem 1.3rem;
+            margin-left: 0.75rem; }
     body > div main {
-      margin-top: 2rem;
-      height: 70vh;
+      flex: 1 1 auto;
+      margin-top: 1.5rem;
       border: 3px solid #45ff00;
       overflow: scroll; }
       body > div main div {
@@ -114,9 +125,10 @@ body {
           background-color: #45ff00;
           color: #111; }
     body > div footer {
+      flex: 0 1 auto;
       position: scroll;
       bottom: 0;
-      padding: 2rem 0rem; }
+      padding: 1rem 0rem 1.3rem 0rem; }
       body > div footer input {
         width: 6ch;
         outline: none;

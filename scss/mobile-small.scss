@@ -1,0 +1,48 @@
+@import "variables";
+@import "extends";
+
+body {
+  & > div {
+    /********************
+          CONTROLS
+    *********************/
+    section {
+      form {
+        div {
+          &#how-many-container {
+            grid-column-start: 1;
+            grid-column-end: 3;
+            justify-content: space-between;
+
+            label {
+              span {
+                &.radio {
+                  margin-right: 0;
+                }
+              }
+            }
+          }
+
+          &#nerdy-container {
+            order: 2;
+            grid-column-start: 1;
+            grid-column-end: 2;
+          }
+
+          &#generate-container {
+            order: 3;
+            grid-column-start: 2;
+            grid-column-end: 3;
+            button {
+              width: initial;
+              margin-left: 0rem;
+            }
+          }
+        }
+      }
+    }
+    main {
+      // margin-top: 0rem;
+    }
+  }
+}

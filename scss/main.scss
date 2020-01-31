@@ -1,19 +1,5 @@
-/********************
-      VARIABLES
-*********************/
-$bg-color: #111;
-$fg-color: #45ff00;
-$content-width: 46.5rem;
-$heading-l: 3.75rem;
-
-/********************
-      EXTENDS
-********************/
-%font {
-  font-family: "VT323", monospace;
-  font-weight: 100;
-  font-size: 1.25rem;
-}
+@import "variables";
+@import "extends";
 
 /********************
       UTILITY
@@ -31,34 +17,44 @@ body {
   background-color: $bg-color;
   color: $fg-color;
   @extend %font;
+  height: 100vh;
 
   & > div {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
     position: relative;
-    width: $content-width;
+    width: $width;
+    max-width: $max-width;
     margin: auto;
 
     /********************
            HEADING
     *********************/
     header {
+      flex: 0 1 auto;
       h1 {
         font-size: $heading-l;
+        padding: 0;
+        margin: 1.5rem 0 1.5rem 0;
         font-weight: 400;
-        margin: 2.5rem 0 2rem 0;
-        color: linear-gradient($fg-color, $bg-color);
+        text-align: justify;
       }
     }
     /********************
           CONTROLS
     *********************/
     section {
-      padding: 0 0.25rem;
+      flex: 0 1 auto;
+
       form {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+        display: grid;
+        grid-template-columns: 1fr auto auto;
 
         div {
+          display: flex;
+          align-items: center;
+          flex-direction: row;
           input {
             display: none;
 
@@ -132,8 +128,8 @@ body {
           SHOWCASE
     *********************/
     main {
-      margin-top: 2rem;
-      height: 70vh;
+      flex: 1 1 auto;
+      margin-top: 1.5rem;
       border: 3px solid $fg-color;
       overflow: scroll;
 
@@ -162,9 +158,11 @@ body {
            FOOTER
     *********************/
     footer {
+      flex: 0 1 auto;
       position: scroll;
       bottom: 0;
-      padding: 2rem 0rem;
+      // padding: 2rem 0rem;
+      padding: 1rem 0rem 1.3rem 0rem;
 
       input {
         width: 6ch;
