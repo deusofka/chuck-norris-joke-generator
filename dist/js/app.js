@@ -20,20 +20,20 @@ let populateH1 = function() {
     h1Dom.textContent = "The Chuck Norris Joke Generator";
   }
 };
-resizeH1();
 populateH1();
+resizeH1();
 
 /********************
     RESIZE EVENT
 *********************/
 window.addEventListener("resize", function(e) {
-  resizeH1();
   populateH1();
+  resizeH1();
 });
 
 window.addEventListener("orientationchange", function(e) {
-  resizeH1();
   populateH1();
+  resizeH1();
 });
 
 /********************
