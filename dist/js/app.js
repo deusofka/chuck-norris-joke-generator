@@ -8,6 +8,13 @@ let mainDom = document.querySelector("main");
 let firstDom = document.querySelector("#first-name");
 let lastDom = document.querySelector("#last-name");
 
+let populateH1 = function() {
+  if (window.innerWidth < 444) {
+    h1Dom.textContent = "Chuck Norris Joke Maker";
+  } else {
+    h1Dom.textContent = "The Chuck Norris Joke Generator";
+  }
+};
 let resizeHeading = function() {
   let headingWidth =
     mainDom.offsetWidth / h1Dom.textContent.length / 6.5 + "rem";
@@ -20,6 +27,7 @@ resizeHeading();
 *********************/
 window.addEventListener("resize", function(e) {
   resizeHeading();
+  populateH1();
 });
 
 /********************
