@@ -84,6 +84,13 @@ generateDom.addEventListener("click", function(e) {
       }
     }
   };
+
+  xhr.onerror = function() {
+    console.log(
+      "The internet isn't available as it's currently surfing Chuck Norris. Please try again later :/"
+    );
+    mainDom.innerHTML = `<div class = "error"><p>The internet isn't available as it's currently surfing Chuck Norris. Please try again later :/</p></div>`;
+  };
   xhr.send();
 });
 

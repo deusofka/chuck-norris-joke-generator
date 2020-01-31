@@ -132,16 +132,27 @@ body {
       margin-top: 1.5rem;
       border: 3px solid $fg-color;
       overflow: scroll;
-
       // Loader
-      div.loader {
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        align-content: center;
-        background-image: url("../img/loading.gif");
-        background-repeat: no-repeat;
-        background-position: 52% 45%;
+      div {
+        &.loader {
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-content: center;
+          background-image: url("../img/loading.gif");
+          background-repeat: no-repeat;
+          background-position: 52% 45%;
+        }
+        &.error {
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-top: -4%;
+          p {
+            border: none;
+          }
+        }
       }
 
       p {

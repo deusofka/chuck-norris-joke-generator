@@ -119,6 +119,14 @@ body {
         background-image: url("../img/loading.gif");
         background-repeat: no-repeat;
         background-position: 52% 45%; }
+      body > div main div.error {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: -4%; }
+        body > div main div.error p {
+          border: none; }
       body > div main p {
         padding: 1.5rem;
         padding-right: 0.75rem; }
