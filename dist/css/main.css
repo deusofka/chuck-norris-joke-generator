@@ -135,6 +135,8 @@ body {
         body > div main p:nth-of-type(even) {
           background-color: #45ff00;
           color: #111; }
+        body > div main p:last-of-type {
+          border: none; }
     body > div footer {
       flex: 0 1 auto;
       position: scroll;
