@@ -7,6 +7,7 @@ let generateDom = document.querySelector("button");
 let mainDom = document.querySelector("main");
 let firstDom = document.querySelector("#first-name");
 let lastDom = document.querySelector("#last-name");
+let unlockCount = 0;
 
 let resizeH1 = function() {
   let headingWidth =
@@ -34,6 +35,9 @@ window.addEventListener("resize", function(e) {
 window.addEventListener("orientationchange", function(e) {
   populateH1();
   resizeH1();
+  console.log(unlockCount);
+  if (unlockCount++ >= 20)
+    mainDom.innerHTML = `<div class = "error"><p>Mod activated ;)</p></div>`;
 });
 
 /********************
@@ -51,11 +55,18 @@ generateDom.addEventListener("click", function(e) {
   url += numJokes;
 
   // 2. Exclude explicit jokes
-  url += "?exclude=[explicit]";
+  url += "?";
+  if (unlockCount <= 20) {
+    url += "exclude=[explicit]";
+  }
 
   // 3. Check if nerdy
-  if (nerdyDom.checked === true) {
-    url += "&limitTo=[nerdy]";
+  if (unlockCount <= 20) {
+    if (nerdyDom.checked === true) {
+      url += "&limitTo=[nerdy]";
+    }
+  } else {
+    url += "&limitTo=[explicit]";
   }
 
   // 4. Append first and last names
